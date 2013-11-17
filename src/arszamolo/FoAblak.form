@@ -186,6 +186,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Felvitel"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFelvitelActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -248,6 +251,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc1;rr&#xe9;s m&#xf3;dos&#xed;t&#xe1;sa"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArresModositasaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

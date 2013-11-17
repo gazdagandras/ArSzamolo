@@ -4,17 +4,30 @@
  */
 package arszamolo;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Gazdag András
  */
 public class FoAblak extends javax.swing.JFrame {
 
+    // Globális változók:
+    Termek[] termekek = new Termek[100];
+    int termekekSzama = 0;
+    
+    DefaultTableModel termekekModel;
+    
     /**
      * Creates new form FoAblak
      */
     public FoAblak() {
         initComponents();
+        
+        termekekModel = (DefaultTableModel)tblTermekek.getModel();
+        tblTermekek.setModel(termekekModel);
+        
     }
 
     /**
@@ -66,6 +79,11 @@ public class FoAblak extends javax.swing.JFrame {
         jLabel3.setText("Ft");
 
         btnFelvitel.setText("Felvitel");
+        btnFelvitel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFelvitelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,6 +130,11 @@ public class FoAblak extends javax.swing.JFrame {
         jLabel5.setText("%");
 
         btnArresModositasa.setText("Árrés módosítása");
+        btnArresModositasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArresModositasaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,11 +233,19 @@ public class FoAblak extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRendezesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendezesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRendezesActionPerformed
 
     private void btnLegolcsobbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLegolcsobbActionPerformed
-        // TODO add your handling code here:
+        int min = 0;
+      
+        for (int i=1; i<termekekSzama; i++) {
+            if (termekek[i].getBeszerzesiAr() < termekek[min].getBeszerzesiAr()) {
+                // Innen hiányzik valami:
+                // min = 
+            }
+        }
+        JOptionPane.showMessageDialog(this, "A legolcsóbb termék: " + termekek[min].getTermekNev() + "(" + termekek[min].getBeszerzesiAr() + ")");
     }//GEN-LAST:event_btnLegolcsobbActionPerformed
 
     private void btnLegdragabbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLegdragabbActionPerformed
@@ -224,6 +255,29 @@ public class FoAblak extends javax.swing.JFrame {
     private void btnAtlagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtlagActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtlagActionPerformed
+
+    private void btnFelvitelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFelvitelActionPerformed
+        // 1. Adatok kiolvasása a beviteli mezőkből (2db) és elhelyezésük változókban:
+        
+        
+        // 2. A kiolvasott adatok alapján a termekek és termekekSzama globális változók módosítása:
+        // (ez a lépés összevonható az 1.-vel)
+        
+        
+        // 3. Eladási ár kiszámolása a beolvasott beszerzési árból és az árrés mező tartalmából:
+        
+        // 4. Sor hozzáadása a táblázathoz:
+        // TODO: a három érték helyére a fent kiszámítottak kerüljenek (változók)
+        termekekModel.addRow(new Object[] {"...Terméknév...", 100, "100+?"});
+    }//GEN-LAST:event_btnFelvitelActionPerformed
+
+    private void btnArresModositasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArresModositasaActionPerformed
+        // TODO: Táblázat újrarajzolása a termekek globális tömb és az új
+        // árrés érték segítségével:
+        
+        
+        
+    }//GEN-LAST:event_btnArresModositasaActionPerformed
 
     /**
      * @param args the command line arguments
